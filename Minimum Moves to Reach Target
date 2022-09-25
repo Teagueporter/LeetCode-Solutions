@@ -1,0 +1,15 @@
+class Solution:
+    def minMoves(self, target: int, maxDoubles: int) -> int:
+        count, numDoubles = 0, 0
+        while target > 1:
+            if target % 2:
+                count += 1
+                target -= 1
+            elif numDoubles < maxDoubles:
+                target //= 2
+                count += 1
+                numDoubles += 1
+            else:
+                count += (target - 1)
+                break
+        return count
